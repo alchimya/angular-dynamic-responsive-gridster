@@ -1,0 +1,7 @@
+.gridster .widget {
+    opacity: 0.5;
+    background:cornsilk;
+    text-align: center;
+    color: darkslategrey;
+    font-size: large;
+}

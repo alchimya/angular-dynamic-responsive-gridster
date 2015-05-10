@@ -1,0 +1,13 @@
+{
+    "layout":
+    [
+        {"col":1,"row":1,"size_x":10,"size_y":5,"class":"widget", "content":"<div>1</div>"},
+        {"col":11,"row":1,"size_x":6,"size_y":5,"class":"widget","content":"<div>2</div>"},
+        {"col":1,"row":6,"size_x":16,"size_y":3,"class":"widget","content":"<div>3</div>"},
+        {"col":1,"row":9,"size_x":16,"size_y":1,"class":"widget","content":"<div>4</div>"}
+    ],
+    "options":{"cols":16,"rows":9}
+}
+
+
+

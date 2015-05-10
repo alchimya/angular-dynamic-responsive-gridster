@@ -1,0 +1,149 @@
+
+
+<div class="gridster grid" >
+    <ul></ul>
+</div>
+
+
+<script>
+
+
+    (function () {
+
+
+        ////////////////////////////////////////////////////////////
+        //iVars
+        var gridster,
+            horizontalMargin=10,
+            verticalMargin=10,
+            widgetWidth= 0,
+            widgetHeight= 0,
+            screenWidth= 0,
+            screenHeight= 0,
+            resizeId,
+            isFullScreen=( window.innerHeight == screen.height);
+        ////////////////////////////////////////////////////////////
+        //functions
+
+        var setupScreen=function(cols,rows){
+
+            //sets width and height vars, depending the screen mode (standard/full screen mode)
+            if (isFullScreen){
+                screenWidth=screen.width;
+                screenHeight=screen.height;
+            }else{
+                screenWidth=window.innerWidth;
+                screenHeight=window.innerHeight;
+            }
+            widgetWidth=(screenWidth/cols)-(horizontalMargin*2);
+            widgetHeight=(screenHeight/rows)-(verticalMargin*2);
+        };
+
+        var setupGridster=function(){
+
+            //sets gridster params
+            $(".gridster ul").gridster({
+                widget_margins: [horizontalMargin, verticalMargin],
+                widget_base_dimensions: [widgetWidth,widgetHeight]
+            });
+
+            gridster = $(".gridster ul").gridster().data('gridster');
+
+
+            //TODO: change it, if you don't want to start on the top left
+            $('.gridster').css({
+                position:'absolute',
+                left: 0,
+                top: 0
+            });
+
+        };
+
+        var compileDirective= function (e) {
+            //compiles angular directive
+            angular.element(document).injector().invoke(function($compile) {
+                var scope = angular.element(e).scope();
+                $compile(e)(scope);
+            });
+        };
+
+        var getLayoutNumber=function(){
+            //gets id number from rout params
+            return angular.element(document).injector().invoke(function($location,$routeParams) {
+                return $routeParams.id;
+            });
+        };
+
+        var loadLayoutWithId=function(id){
+
+            //add css layout dinamically
+            $("<link/>", {
+                rel: "stylesheet",
+                type: "text/css",
+                href: "app/layouts/" + id + ".css"
+            }).appendTo("head");
+
+            //makes url json file layout
+            var jsonURL="app/layouts/" + id + ".json";
+
+            //load widgets via json file
+            var jsonChannel = $.getJSON( jsonURL, function(data) {
+
+                //sets screen and gridster vars
+                setupScreen(data.options.cols,data.options.rows);
+                setupGridster();
+
+                // sort gridster serialization data layout
+                var serialization = Gridster.sort_by_row_and_col_asc(data.layout);
+
+                //remove all gridster widgtes
+                gridster.remove_all_widgets();
+
+                $.each(serialization, function() {
+                    //for each intem in json layout data, it creates a gridster widget
+                    gridster.add_widget('<li>' + this.content + '</li>', this.size_x, this.size_y, this.col, this.row);
+
+                    if (this.class){
+                        $('.gs-w').addClass(this.class);
+                    }
+                    if (this.style){
+                        $('.gs-w').attr("style", $('.gs-w').attr("style") + "; " + this.style);
+                    }
+                    if (this.isDirective){
+                        //compile angular directive
+                        compileDirective($('.' + this.class));
+                    }
+                });
+
+            })
+            .fail(function(jqXHR,textStatus,errorThrown) {
+                console.log( textStatus );
+            })
+            .always(function() {
+                //console.log( "complete" );
+            });
+
+        };
+
+        var windowDidResize=function(){
+            setupScreen();
+            location.reload();
+        };
+
+        ////////////////////////////////////////////////////////////
+        //events
+        $(document).ready(function() {
+            loadLayoutWithId(getLayoutNumber());
+        });
+
+        $( window ).resize(function() {
+            //emulates on resize finished event
+            clearTimeout(resizeId);
+            resizeId=setTimeout(windowDidResize,500);
+        });
+
+
+    })();
+
+
+</script>

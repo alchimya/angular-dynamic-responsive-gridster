@@ -1,0 +1,59 @@
+<!DOCTYPE html>
+<html ng-app="app">
+<head lang="en">
+    <meta charset="UTF-8">
+    <title>Dynamic Responsive Gridster</title>
+
+
+
+    <!-- Angular animation -->
+    <link href="app/css/animations.css" rel="stylesheet">
+
+    <!-- Bootstrap-->
+    <link href="bower_components/bootstrap/dist/css/bootstrap.min.css" rel="stylesheet">
+    <link href="bower_components/bootstrap/dist/css/bootstrap-theme.min.css" rel="stylesheet">
+
+    <!--Gridster-->
+    <link href="bower_components/gridster/dist/jquery.gridster.css" rel="stylesheet">
+
+    <!-- app -->
+    <link href="app/css/site.css" rel="stylesheet">
+
+</head>
+<body>
+
+    <!-- Main View (Routing Container) -->
+    <div  ng-view class="slide-animation"></div>
+
+    <!--jQuery-->
+    <script src="bower_components/jquery/jquery.min.js"></script>
+
+    <!-- Bootstrap-->
+    <script src="bower_components/bootstrap/dist/js/bootstrap.min.js"></script>
+
+    <!-- Angular -->
+    <script src="bower_components/angular/angular.min.js"></script>
+    <script src="bower_components/angular-animate/angular-animate.min.js"></script>
+    <script src="bower_components/angular-resource/angular-resource.min.js"></script>
+    <script src="bower_components/angular-route/angular-route.min.js"></script>
+    <script src="bower_components/angular-sanitize/angular-sanitize.min.js"></script>
+
+    <!--Gridster-->
+    <script src="bower_components/gridster/dist/jquery.gridster.min.js"></script>
+
+    <!-- app -->
+    <script src="app/app.js"></script>
+    <script src="app/routing.js"></script>
+
+    <!-- controllers -->
+    <script src="app/controllers/MainController.js"></script>
+    <script src="app/controllers/LayoutController.js"></script>
+
+    <!-- directives -->
+    <script src="app/directives/TestDirective.js"></script>
+
+
+
+
+</body>
+</html>
