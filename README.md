@@ -30,7 +30,7 @@ size_x        | number          | The number of rows that the widget occupies.
 size_y        | number          | The number of columns that the widget occupies.
 class         | string          | The css class applied to the widget.
 content       | string          | The html content of the widget.
-isDirective   | boolean         | Sets it true if the content is an angular directive.
+isDirective   | boolean         | Set it to true if the content is an angular directive.
 
 <h5>grid_options properties</h5>
    name       |     type        |   description    
