@@ -9,7 +9,7 @@ An AngularJs project with responsive gridster layout and dynamic json loading
 - start index.html and try the example layouts
 
 # How to configure a new layout
-- create a new json file and name it as N.json. Here the JSON structure:
+- create a new json file and name it as N.json (where N is a number). Here the JSON structure:
 
 ```javascript
 {
@@ -53,7 +53,7 @@ rows          | number          | Total rows of widget.
 }
 ```
 
-- create a new css file and name it as N.css
+- create a new css file and name it as N.css (where N is a number).
 <br/>
 Put here your widget style classess
 
