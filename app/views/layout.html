@@ -1,6 +1,6 @@
 
 
-<div class="gridster grid" >
+<div class="gridster" >
     <ul></ul>
 </div>
 
@@ -87,7 +87,7 @@
             var jsonURL="app/layouts/" + id + ".json";
 
             //load widgets via json file
-            var jsonChannel = $.getJSON( jsonURL, function(data) {
+            var jsonRequest = $.getJSON( jsonURL, function(data) {
 
                 //sets screen and gridster vars
                 setupScreen(data.options.cols,data.options.rows);
