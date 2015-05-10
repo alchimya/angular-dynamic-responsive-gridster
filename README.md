@@ -1,7 +1,7 @@
 # angular-dynamic-responsive-gridster
 An AngularJs project with responsive gridster layout and dynamic json loading
 
-#Intallation
+#Installation
 - bower install
 
 # How to use
@@ -59,3 +59,11 @@ Put here your widget style classess
 
 
 For further information see on the layout folder the existing layouts.
+
+<br/>
+![ScreenShot](https://raw.github.com/alchimya/angular-dynamic-responsive-gridster/master/screenshots/layout_1_1.gif)
+![ScreenShot](https://raw.github.com/alchimya/angular-dynamic-responsive-gridster/master/screenshots/layout_1_2.gif)
+![ScreenShot](https://raw.github.com/alchimya/angular-dynamic-responsive-gridster/master/screenshots/layout_2_1.gif)
+![ScreenShot](https://raw.github.com/alchimya/angular-dynamic-responsive-gridster/master/screenshots/layout_2_2.gif)
+![ScreenShot](https://raw.github.com/alchimya/angular-dynamic-responsive-gridster/master/screenshots/layout_3_1.gif)
+![ScreenShot](https://raw.github.com/alchimya/angular-dynamic-responsive-gridster/master/screenshots/layout_3_2.gif)
