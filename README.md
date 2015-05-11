@@ -55,7 +55,7 @@ rows          | number          | Total rows of widget.
 
 - create a new css file and name it as N.css (where N is a number).
 <br/>
-Put here your widget style classess
+Put here your widget style classes
 
 
 For further information see on the layout folder the existing layouts.
